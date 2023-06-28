@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:53:58 by dpestana          #+#    #+#             */
-/*   Updated: 2023/06/28 16:53:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/06/28 17:00:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #############################
 */
 
-typedef struct s_myfile
+typedef struct s_file
 {
 	char	*no_path;
 	char	*so_path;
@@ -27,8 +27,9 @@ typedef struct s_myfile
 	char	*ea_path;
 	int		*floor;
 	int		*ceiling;
+	int		*fd;
 
-}t_myfile;
+}t_file;
 
 /*
 #############################
@@ -53,6 +54,7 @@ typedef struct s_map
 typedef struct s_data
 {
 	t_map		map;
+	t_file		file;
 
 }t_data;
 
