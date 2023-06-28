@@ -5,23 +5,19 @@
 #	MAKEFLAGS += --silent									# Silent the output makefile default msgs
 
 # Executable name
-EXEC_NAME					=	interface
+EXEC_NAME					=	cub3d
 
 # Compiler program
-COMP						=	clang++
-#COMP						=	c++
+COMP						=	gcc
 
 #############################
 #			FLAGS			#
 #############################
 # Warnings that are risky or suggest there may have been an error
-WAR_F						=	-Wall -Wextra -Werror -Wshadow -Wno-shadow
+WAR_F						=	-Wall -Wextra -Werror
 
 # Detect memory access error such as use-after-free and memory leaks
-SAN_F						=	-fsanitize=address
-
-# Only compiles on std=c++98 format
-STD_F						=	-std=c++98
+SAN_F						=	-g -fsanitize=address
 
 # Add the directory incs to the list of directories to be searched for header files during preprocessing.
 INC_F						=	-I incs
@@ -72,22 +68,23 @@ ALL_DIRS					=	$(OBJ_DIR) \
 #############################
 
 # Source files
-SRC_FILES					=	main.cpp \
-								$(SRC_DIR)/AMateria.cpp \
-								$(SRC_DIR)/Character.cpp \
-								$(SRC_DIR)/Cure.cpp \
-								$(SRC_DIR)/Ice.cpp \
-								$(SRC_DIR)/MateriaSource.cpp 
+SRC_FILES					=	main.c 					\
+								$(SRC_DIR)/check.c		\
+								$(SRC_DIR)/end.c		\
+								$(SRC_DIR)/reading.c
 
 
 # Header files
-#HDR_FILES					=	Fixed.hpp
+HDR_FILES					=	$(INC_DIR)\cub3d.h 		\
+								$(INC_DIR)\functions.h 	\
+								$(INC_DIR)\macros.h 	\
+								$(INC_DIR)\structs.h
 
 # Lib files
 LIB_FILE					=	$(EXEC_NAME).a
 
 # Object files
-OBJ_FILES					=	$(SRC_FILES:%.cpp=$(OBJ_DIR)/%.o) $(SRC_FILES:srcs/%.cpp=$(OBJ_DIR)/srcs/%.o)
+OBJ_FILES					=	$(SRC_FILES:%.c=$(OBJ_DIR)/%.o) $(SRC_FILES:srcs/%.c=$(OBJ_DIR)/srcs/%.o)
 
 #################################################################################################
 # 										RULES/TARGETS											#
@@ -99,13 +96,13 @@ all: $(EXEC_NAME)
 # Compile C Files to Object Files
 # $< = first dependece
 # $@ = value of rule/target
-$(OBJ_DIR)/%.o: %.cpp
-	${COMP} $(WAR_F) $(SAN_F) $(STD_F) $(INC_F) $(CPL_F) $< $(OUT_F) $@
+$(OBJ_DIR)/%.o: %.c
+	${COMP} $(WAR_F) $(SAN_F) $(INC_F) $(CPL_F) $< $(OUT_F) $@
 
 # Build Project
 $(EXEC_NAME): $(ALL_DIRS) ${OBJ_FILES}
 	${AR} $(LIB_DIR)/${LIB_FILE} ${OBJ_FILES}
-	${COMP} $(WAR_F) $(SAN_F) $(STD_F) $(LIB_DIR)/${LIB_FILE} $(OUT_F) $(EXEC_NAME)
+	${COMP} $(WAR_F) $(SAN_F) $(LIB_DIR)/${LIB_FILE} $(OUT_F) $(EXEC_NAME)
 
 # Clean Project
 clean:

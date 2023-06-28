@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 15:44:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/06/28 16:47:48 by dpestana         ###   ########.fr       */
+/*   Created: 2023/06/28 16:42:11 by dpestana          #+#    #+#             */
+/*   Updated: 2023/06/28 16:55:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incs/cub3d.h"
 
-int	main(int ac, char **av)
+void	reading(t_data *data)
 {
-	t_data	data;
-		
-	check_args(ac , av);
-	reading(&data);
-	
-
-	return (0);
+	*fd = open(map_path, O_RDONLY);
+	if (*fd == -1)
+		error_open_file(fd, g);
+	line = get_next_line(*fd);
 }

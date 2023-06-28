@@ -6,12 +6,18 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:53:58 by dpestana          #+#    #+#             */
-/*   Updated: 2023/06/28 16:11:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:53:43 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+/*
+#############################
+#			MYFILES			#
+#############################
+*/
 
 typedef struct s_myfile
 {
@@ -24,6 +30,12 @@ typedef struct s_myfile
 
 }t_myfile;
 
+/*
+#############################
+#			MAP				#
+#############################
+*/
+
 typedef struct s_map
 {
 	char	**matrix;
@@ -32,11 +44,17 @@ typedef struct s_map
 
 }t_map;
 
-typedef struct s_game
+/*
+#############################
+#			DATA			#
+#############################
+*/
+
+typedef struct s_data
 {
 	t_map		map;
 
-}t_game;
+}t_data;
 
 #endif
 
