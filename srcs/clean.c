@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 15:44:40 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/03 16:51:34 by dpestana         ###   ########.fr       */
+/*   Created: 2023/07/03 16:57:04 by dpestana          #+#    #+#             */
+/*   Updated: 2023/07/03 17:10:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incs/cub3d.h"
 
-void	check_args(t_data data, int ac)
+void	clean_file(t_data *data)
 {
-	if (ac != 2)
-		gameover(data, FAIL, "Error: Invalid args number");
+	free_str_safe(&data->file.no_path);
+	free_str_safe(&data->file.so_path);
+	free_str_safe(&data->file.we_path);
+	free_str_safe(&data->file.ea_path);
+	free_int_safe(&data->file.ceiling);
+	free_int_safe(&data->file.floor);
 }
 
-void	check_filename(t_data data, char *filename)
+void	clean_map(t_data *data)
 {
-	int	inc;
-
-	inc = 0;
-	while (*(filename + inc) != '\0')
-	{
-		if (!ft_strcmp((filename + inc), ".cub") && inc != 0)
-			return ;
-		inc++;
-	}
-	gameover(data, FAIL, "Error: Invalid filename");
+	free_bidim_str_safe(&data->map.matrix);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:53:58 by dpestana          #+#    #+#             */
-/*   Updated: 2023/06/28 17:00:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:54:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_file
 	char	*ea_path;
 	int		*floor;
 	int		*ceiling;
-	int		*fd;
 
 }t_file;
 
@@ -47,6 +46,19 @@ typedef struct s_map
 
 /*
 #############################
+#			READING			#
+#############################
+*/
+
+typedef struct s_reading
+{
+	int		*fd;
+	char	*line;
+
+}t_reading;
+
+/*
+#############################
 #			DATA			#
 #############################
 */
@@ -55,6 +67,7 @@ typedef struct s_data
 {
 	t_map		map;
 	t_file		file;
+	t_reading	rd;
 
 }t_data;
 
