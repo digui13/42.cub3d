@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:21:17 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/03 17:23:04 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:38:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,11 @@
 void	skip_spaces(char *str, int *i)
 {
 	while (*(str + (*i)) != '\0' && *(str + (*i)) == ' ')
+		(*i)++;
+}
+
+void	skip_str(char *str, int *i)
+{
+	while (*(str + (*i)) != '\0' && *(str + (*i)) != ' ' && *(str + (*i)) != '\n')
 		(*i)++;
 }
