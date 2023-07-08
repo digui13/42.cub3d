@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:10:24 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 20:52:27 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:46:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	free_bidim_str_safe(char ***str)
 			*(*str + inc) = NULL;
 			inc++;
 		}
-		free_str_safe(&str);
+		free(*str);
+		*str = NULL;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:56:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 21:39:41 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:49:34 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	initialize(t_data *data)
 	data->map.max_x = -1;
 	data->map.max_y = -1;
 	data->map.matrix = NULL;
-	data->rd.fd = NULL;
+	data->rd.fd = -1;
 	data->rd.line = NULL;
 }

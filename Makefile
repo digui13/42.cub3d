@@ -28,6 +28,8 @@ OUT_F						=	-o
 # Compile or assemble the source files, but do not link
 CPL_F						=	-c
 
+#MLX_FLAGS 			=		-Imlx -lmlx -framework OpenGL -framework AppKit
+
 #############################
 #			LIBRARY			#
 #############################
@@ -68,17 +70,20 @@ ALL_DIRS					=	$(OBJ_DIR) \
 #############################
 
 # Source files
-SRC_FILES					=	main.c 							\
-								$(SRC_DIR)/check_file.c			\
-								$(SRC_DIR)/check.c				\
-								$(SRC_DIR)/clean.c				\
-								$(SRC_DIR)/end.c				\
-								$(SRC_DIR)/freesafe.c			\
-								$(SRC_DIR)/initialize.c			\
-								$(SRC_DIR)/my_funcs.c			\
-								$(SRC_DIR)/reading.c			\
-								$(SRC_DIR)/set_orientation.c	\
-								$(SRC_DIR)/utils.c				\
+SRC_FILES					=	main.c 									\
+								$(SRC_DIR)/check_file.c					\
+								$(SRC_DIR)/check.c						\
+								$(SRC_DIR)/clean.c						\
+								$(SRC_DIR)/end.c						\
+								$(SRC_DIR)/freesafe.c					\
+								$(SRC_DIR)/initialize.c					\
+								$(SRC_DIR)/my_funcs.c					\
+								$(SRC_DIR)/reading.c					\
+								$(SRC_DIR)/set_orientations.c			\
+								$(SRC_DIR)/utils.c						\
+								$(SRC_DIR)/utils.c						\
+								$(SRC_DIR)/gnl/get_next_line_utils.c	\
+								$(SRC_DIR)/gnl/get_next_line.c
 
 
 # Header files
@@ -91,7 +96,7 @@ HDR_FILES					=	$(INC_DIR)\cub3d.h 		\
 LIB_FILE					=	$(EXEC_NAME).a
 
 # Object files
-OBJ_FILES					=	$(SRC_FILES:%.c=$(OBJ_DIR)/%.o) $(SRC_FILES:srcs/%.c=$(OBJ_DIR)/srcs/%.o)
+OBJ_FILES					=	$(SRC_FILES:%.c=$(OBJ_DIR)/%.o) $(SRC_FILES:srcs/%.c=$(OBJ_DIR)/srcs/%.o) $(SRC_FILES:srcs/gnl/%.c=$(OBJ_DIR)/srcs/gnl/%.o)
 
 #################################################################################################
 # 										RULES/TARGETS											#
@@ -127,6 +132,7 @@ re:					fclean all
 $(ALL_DIRS):
 	$(CREATE_DIR) $(OBJ_DIR)
 	$(CREATE_DIR) $(OBJ_DIR)/$(SRC_DIR)
+	$(CREATE_DIR) $(OBJ_DIR)/$(SRC_DIR)/gnl
 	$(CREATE_DIR) $(LIB_DIR)
 
 # Phony (reserve the "key" names to avoid conflits)

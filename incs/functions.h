@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 21:41:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 22:04:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void			initialize(t_data *data);
 char			*my_strndup(const char *s, int qty);
 int				my_strcmp(char *s1, char *s2);
 int				my_isspace(int c);
+int				my_strncmp(const char *s1, const char *s2, size_t n);
 
 /*
 #############################
