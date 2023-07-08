@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 22:04:22 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 22:42:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,7 @@ void			reading(t_data *data, char *filename);
 #############################
 */
 
-void			set_no_path(t_data *data, char *line, int *inc);
-void			set_so_path(t_data *data, char *line, int *inc);
-void			set_we_path(t_data *data, char *line, int *inc);
-void			set_ea_path(t_data *data, char *line, int *inc);
+void			set_dir_path(t_data *data, char *line, int *inc, char **str);
 
 /*
 #############################

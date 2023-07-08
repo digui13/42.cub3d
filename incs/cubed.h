@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:44:47 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 22:01:46 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 22:43:42 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@
 # include "functions.h"
 
 // REMOVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE (printf tests)
-#include <stdio.h>
+# include <stdio.h>
 
 #endif

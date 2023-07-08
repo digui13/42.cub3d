@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:42:11 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 22:07:22 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 22:42:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	line_elements(t_data *data)
 	while (*(data->rd.line + inc) != '\0')
 	{
 		if (!my_strncmp((data->rd.line + inc), "NO ", 3))
-			set_no_path(data, data->rd.line, &inc);
+			set_dir_path(data, data->rd.line, &inc, &data->file.no_path);
 		else if (!my_strncmp((data->rd.line + inc), "SO ", 3))
-			set_so_path(data, data->rd.line, &inc);
+			set_dir_path(data, data->rd.line, &inc, &data->file.so_path);
 		else if (!my_strncmp((data->rd.line + inc), "WE ", 3))
-			set_we_path(data, data->rd.line, &inc);
+			set_dir_path(data, data->rd.line, &inc, &data->file.we_path);
 		else if (!my_strncmp((data->rd.line + inc), "EA ", 3))
-			set_ea_path(data, data->rd.line, &inc);
+			set_dir_path(data, data->rd.line, &inc, &data->file.ea_path);
 		else if (!my_isspace(*(data->rd.line + inc)))
 			gameover(data, EXIT_FAILURE, "Error: File has extra content");
 		inc++;

@@ -79,7 +79,7 @@ SRC_FILES					=	main.c 									\
 								$(SRC_DIR)/initialize.c					\
 								$(SRC_DIR)/my_funcs.c					\
 								$(SRC_DIR)/reading.c					\
-								$(SRC_DIR)/set_orientations.c			\
+								$(SRC_DIR)/set_file_values.c			\
 								$(SRC_DIR)/utils.c						\
 								$(SRC_DIR)/utils.c						\
 								$(SRC_DIR)/gnl/get_next_line_utils.c	\

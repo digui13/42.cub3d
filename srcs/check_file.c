@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:31:17 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 21:45:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 22:43:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	check_filename(t_data *data, char *filename)
 
 int	has_file_orientations(t_data *data)
 {
-	if (data->file.no_path && data->file.so_path && data->file.we_path && data->file.ea_path)
+	if (data->file.no_path
+		&& data->file.so_path
+		&& data->file.we_path
+		&& data->file.ea_path)
 		return (YES);
 	return (NO);
 }
