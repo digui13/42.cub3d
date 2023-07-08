@@ -6,13 +6,13 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:31:17 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 20:52:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:36:34 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cubed.h"
 
-void	check_filename(t_data data, char *filename)
+void	check_filename(t_data *data, char *filename)
 {
 	int	inc;
 

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:46:31 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 20:52:25 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:40:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	clean(t_data *data)
 {
-	clean_file(data);
-	clean_map(data);
+	clean_file_elements(data);
+	clean_file_map(data);
 }
 
 static void	error(char *msg)

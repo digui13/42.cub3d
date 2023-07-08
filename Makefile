@@ -68,10 +68,17 @@ ALL_DIRS					=	$(OBJ_DIR) \
 #############################
 
 # Source files
-SRC_FILES					=	main.c 					\
-								$(SRC_DIR)/check.c		\
-								$(SRC_DIR)/end.c		\
-								$(SRC_DIR)/reading.c
+SRC_FILES					=	main.c 							\
+								$(SRC_DIR)/check_file.c			\
+								$(SRC_DIR)/check.c				\
+								$(SRC_DIR)/clean.c				\
+								$(SRC_DIR)/end.c				\
+								$(SRC_DIR)/freesafe.c			\
+								$(SRC_DIR)/initialize.c			\
+								$(SRC_DIR)/my_funcs.c			\
+								$(SRC_DIR)/reading.c			\
+								$(SRC_DIR)/set_orientation.c	\
+								$(SRC_DIR)/utils.c				\
 
 
 # Header files

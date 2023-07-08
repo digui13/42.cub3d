@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:04:05 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 20:52:33 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:11:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ int	my_strcmp(char *s1, char *s2)
 		inc++;
 	}
 	return (*(s1 + inc) - *(s2 + inc));
+}
+
+int	my_isspace(int c)
+{
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	return (0);
 }

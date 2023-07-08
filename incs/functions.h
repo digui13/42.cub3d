@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/06/28 16:55:25 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 21:41:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,94 @@
 #############################
 */
 
+void			check_args(t_data *data, int ac);
+
+/*
+#############################
+#			CHECK_FILE		#
+#############################
+*/
+
+void			check_filename(t_data *data, char *filename);
+int				has_file_orientations(t_data *data);
+int				has_file_colors(t_data *data);
+int				has_file_map(t_data *data);
+
+/*
+#############################
+#			CLEAN			#
+#############################
+*/
+
+void			clean_file_elements(t_data *data);
+void			clean_file_map(t_data *data);
+
 /*
 #############################
 #			END				#
 #############################
 */
 
+//static void		clean(t_data *data);
+//static void		error(char *msg);
+void			gameover(t_data *data, int status, char *msg);
+
 /*
 #############################
-#			READ			#
+#			FREESAFE		#
 #############################
 */
+
+void			free_str_safe(char **str);
+void			free_bidim_str_safe(char ***str);
+void			free_int_safe(int **num);
+
+/*
+#############################
+#			INITIALIZE		#
+#############################
+*/
+
+void			initialize(t_data *data);
+
+/*
+#############################
+#			MY_FUNCS		#
+#############################
+*/
+
+char			*my_strndup(const char *s, int qty);
+int				my_strcmp(char *s1, char *s2);
+int				my_isspace(int c);
+
+/*
+#############################
+#			READING			#
+#############################
+*/
+
+void			line_elements(t_data *data);
+void			reading(t_data *data, char *filename);
+
+/*
+#############################
+#		SET_ORIENTATIONS	#
+#############################
+*/
+
+void			set_no_path(t_data *data, char *line, int *inc);
+void			set_so_path(t_data *data, char *line, int *inc);
+void			set_we_path(t_data *data, char *line, int *inc);
+void			set_ea_path(t_data *data, char *line, int *inc);
+
+/*
+#############################
+#			UTILS			#
+#############################
+*/
+
+void			skip_spaces(char *str, int *i);
+void			skip_str(char *str, int *i);
 
 #endif
 
