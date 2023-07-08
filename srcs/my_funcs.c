@@ -1,28 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean.c                                            :+:      :+:    :+:   */
+/*   my_funcs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 16:57:04 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 20:52:22 by dpestana         ###   ########.fr       */
+/*   Created: 2023/07/08 20:04:05 by dpestana          #+#    #+#             */
+/*   Updated: 2023/07/08 20:52:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cubed.h"
 
-void	clean_file(t_data *data)
+char	*my_strndup(const char *s, int qty)
 {
-	free_str_safe(&data->file.no_path);
-	free_str_safe(&data->file.so_path);
-	free_str_safe(&data->file.we_path);
-	free_str_safe(&data->file.ea_path);
-	free_int_safe(&data->file.ceiling);
-	free_int_safe(&data->file.floor);
+	char	*p;
+	int		cnt;
+
+	p = (char *)malloc(qty + 1);
+	cnt = 0;
+	if (p == NULL)
+		return (NULL);
+	while (cnt < qty)
+	{
+		*(p + cnt) = *(s + cnt);
+		cnt++;
+	}
+	*(p + cnt) = '\0';
+	return (p);
 }
 
-void	clean_map(t_data *data)
+int	my_strcmp(char *s1, char *s2)
 {
-	free_bidim_str_safe(&data->map.matrix);
+	int	inc;
+
+	inc = 0;
+	while (*(s1 + inc) == *(s2 + inc))
+	{
+		if (*(s1 + inc) == '\0')
+			return (0);
+		inc++;
+	}
+	return (*(s1 + inc) - *(s2 + inc));
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   end.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:46:31 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/03 17:14:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:52:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/cub3d.h"
+#include "../incs/cubed.h"
 
 static void	clean(t_data *data)
 {

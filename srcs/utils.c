@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:21:17 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/05 16:38:07 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:52:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/cub3d.h"
+#include "../incs/cubed.h"
 
 void	skip_spaces(char *str, int *i)
 {

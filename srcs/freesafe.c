@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   freesafe.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:10:24 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/03 17:10:37 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:52:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/cub3d.h"
+#include "../incs/cubed.h"
 
 void	free_str_safe(char **str)
 {
