@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:42:11 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 22:42:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:09:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ void	line_elements(t_data *data)
 	inc = 0;
 	while (*(data->rd.line + inc) != '\0')
 	{
-		if (!my_strncmp((data->rd.line + inc), "NO ", 3))
-			set_dir_path(data, data->rd.line, &inc, &data->file.no_path);
-		else if (!my_strncmp((data->rd.line + inc), "SO ", 3))
-			set_dir_path(data, data->rd.line, &inc, &data->file.so_path);
-		else if (!my_strncmp((data->rd.line + inc), "WE ", 3))
-			set_dir_path(data, data->rd.line, &inc, &data->file.we_path);
-		else if (!my_strncmp((data->rd.line + inc), "EA ", 3))
-			set_dir_path(data, data->rd.line, &inc, &data->file.ea_path);
+		if (!my_strncmp((data->rd.line + inc), "NO", 2))
+			set_dir_val(data, &inc, &data->file.no_path);
+		else if (!my_strncmp((data->rd.line + inc), "SO", 2))
+			set_dir_val(data, &inc, &data->file.so_path);
+		else if (!my_strncmp((data->rd.line + inc), "WE", 2))
+			set_dir_val(data, &inc, &data->file.we_path);
+		else if (!my_strncmp((data->rd.line + inc), "EA", 2))
+			set_dir_val(data, &inc, &data->file.ea_path);
+		else if (!my_strncmp((data->rd.line + inc), "C", 1))
+			set_color_val(data, &inc, &data->file.floor);
+		else if (!my_strncmp((data->rd.line + inc), "F", 1))
+			set_color_val(data, &inc, &data->file.ceiling);
 		else if (!my_isspace(*(data->rd.line + inc)))
 			gameover(data, EXIT_FAILURE, "Error: File has extra content");
 		inc++;

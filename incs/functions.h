@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 22:42:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:09:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,8 @@ void			reading(t_data *data, char *filename);
 #############################
 */
 
-void			set_dir_path(t_data *data, char *line, int *inc, char **str);
-
-/*
-#############################
-#			UTILS			#
-#############################
-*/
-
-void			skip_spaces(char *str, int *i);
-void			skip_str(char *str, int *i);
+void			set_dir_val(t_data *data, int *inc, char **str);
+void			set_color_val(t_data *data, int *inc, int **rgb);
 
 #endif
 
