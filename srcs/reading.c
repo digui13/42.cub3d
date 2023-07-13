@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:42:11 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/10 19:09:06 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:58:53 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	reading(t_data *data, char *filename)
 	data->rd.line = get_next_line(data->rd.fd);
 	while (data->rd.line != NULL)
 	{
-		if (!has_file_orientations(data) && !has_file_colors(data))
+		if (!has_file_orientations(data) || !has_file_colors(data))
 			line_elements(data);
 		//else
 		//	line_map(data);
@@ -56,9 +56,9 @@ void	reading(t_data *data, char *filename)
 	close(data->rd.fd);
 	data->rd.fd = -1;
 	if (!has_file_orientations(data))
-		gameover(data, EXIT_FAILURE, "Error: Miss file orientation values");
-	//if (!has_file_colors(data))
-	//	gameover(data, EXIT_FAILURE, "Error: Miss file color values");
+		gameover(data, EXIT_FAILURE, "Error: Miss file direction values");
+	if (!has_file_colors(data))
+		gameover(data, EXIT_FAILURE, "Error: Miss file color values");
 	//if (!has_file_map(data))	
 	//	gameover(data, EXIT_FAILURE, "Error: Miss file map values");
 }
