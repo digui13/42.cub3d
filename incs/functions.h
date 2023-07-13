@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/10 19:09:35 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:07:37 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,25 @@ int				my_strncmp(const char *s1, const char *s2, size_t n);
 */
 
 void			line_elements(t_data *data);
+void			line_map(t_data *data);
 void			reading(t_data *data, char *filename);
 
 /*
 #############################
-#		SET_ORIENTATIONS	#
+#		SET_DIRECTIONS		#
 #############################
 */
 
 void			set_dir_val(t_data *data, int *inc, char **str);
 void			set_color_val(t_data *data, int *inc, int **rgb);
+
+/*
+#############################
+#			SET_MAP			#
+#############################
+*/
+
+
 
 #endif
 
