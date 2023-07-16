@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   show.c                                             :+:      :+:    :+:   */
+/*   show_output.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:50:46 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 16:30:11 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 19:54:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	show_output(t_data *data)
 		printf("%s\n", *(data->map.matrix + i));
 		i++;
 	}
+	printf("player x: %d, y: %d, dir: %c\n",  data->player.x, data->player.y, data->player.dir);
 }

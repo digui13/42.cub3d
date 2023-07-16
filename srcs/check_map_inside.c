@@ -6,13 +6,13 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:54:58 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 18:43:48 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 19:26:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cubed.h"
 
-static void	check_up_down(t_data *data, char **matrix, int x, int y)
+static void	check_up_down_left_right(t_data *data, char **matrix, int x, int y)
 {
 	if (*(*(matrix + y + 1) + x) == ' ')
 		gameover(data, EXIT_FAILURE,
@@ -20,10 +20,6 @@ static void	check_up_down(t_data *data, char **matrix, int x, int y)
 	if (*(*(matrix + y - 1) + x) == ' ')
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
-}
-
-static void	check_left_right(t_data *data, char **matrix, int x, int y)
-{
 	if (*(*(matrix + y) + x + 1) == ' ')
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
@@ -32,7 +28,7 @@ static void	check_left_right(t_data *data, char **matrix, int x, int y)
 			"Error: Map is not surrounded by walls");
 }
 
-static void	check_diagonal_up(t_data *data, char **matrix, int x, int y)
+static void	check_diagonal(t_data *data, char **matrix, int x, int y)
 {
 	if (*(*(matrix + y - 1) + x - 1) == ' ')
 		gameover(data, EXIT_FAILURE,
@@ -40,10 +36,6 @@ static void	check_diagonal_up(t_data *data, char **matrix, int x, int y)
 	if (*(*(matrix + y - 1) + x + 1) == ' ')
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
-}
-
-static void	check_diagonal_down(t_data *data, char **matrix, int x, int y)
-{
 	if (*(*(matrix + y + 1) + x + 1) == ' ')
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
@@ -61,10 +53,8 @@ static void	check_surrounds_limits(t_data *data, int x, int y)
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
 	if (!(x + 1 < *(data->map.max_x + y + 1)))
-	{
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
-	}
 	if (!(x + 1 < *(data->map.max_x + y - 1)))
 		gameover(data, EXIT_FAILURE,
 			"Error: Map is not surrounded by walls");
@@ -82,8 +72,6 @@ void	check_map_inside(t_data *data, char **matrix, int x, int y)
 		&& *(*(matrix + y) + x) != 'W')
 		return ;
 	check_surrounds_limits(data, x, y);
-	check_up_down(data, matrix, x, y);
-	check_left_right(data, matrix, x, y);
-	check_diagonal_up(data, matrix, x, y);
-	check_diagonal_down(data, matrix, x, y);
+	check_up_down_left_right(data, matrix, x, y);
+	check_diagonal(data, matrix, x, y);
 }

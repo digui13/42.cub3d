@@ -72,6 +72,7 @@ ALL_DIRS					=	$(OBJ_DIR) \
 # Source files
 SRC_FILES					=	main.c 									\
 								$(SRC_DIR)/show_output.c				\
+								$(SRC_DIR)/utils.c				\
 								$(SRC_DIR)/check_map.c					\
 								$(SRC_DIR)/check_map_inside.c			\
 								$(SRC_DIR)/check_file.c					\
