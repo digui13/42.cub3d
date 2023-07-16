@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:02:02 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:56:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:28:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	len_on_breakline(char *line)
 static void	alloc_map_line(t_data *data)
 {
 	char	**tmp;
+	int		*x_tmp;
 	int		inc;
 	int		len;
 
@@ -50,7 +51,9 @@ static void	alloc_map_line(t_data *data)
 	if (data->map.matrix == NULL)
 	{
 		data->map.matrix = malloc(sizeof(char *) * 2);
+		data->map.max_x = malloc(sizeof(int) * 1);
 		len = len_on_breakline(data->rd.line);
+		*data->map.max_x = len;
 		*data->map.matrix = my_strndup(data->rd.line, len);
 		*(data->map.matrix + 1) = NULL;
 		data->map.lines = 1;
@@ -58,16 +61,21 @@ static void	alloc_map_line(t_data *data)
 	else
 	{
 		tmp = malloc(sizeof(char *) * (data->map.lines + 2));
+		x_tmp = malloc(sizeof(int) * (data->map.lines + 1));
 		while (inc < data->map.lines)
 		{
+			*(x_tmp + inc) = *(data->map.max_x + inc);
 			*(tmp + inc) = *(data->map.matrix + inc);
 			inc++;
 		}
 		len = len_on_breakline(data->rd.line);
+		*(x_tmp + inc) = len;
 		*(tmp + inc) = my_strndup(data->rd.line, len);
 		*(tmp + inc + 1) = NULL;
 		free(data->map.matrix);
+		free(data->map.max_x);
 		data->map.matrix = tmp;
+		data->map.max_x = x_tmp;
 		data->map.lines++;
 	}
 }

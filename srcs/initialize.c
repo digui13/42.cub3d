@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:56:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 12:54:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:24:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	initialize(t_data *data)
 	data->file.ceiling = NULL;
 	data->file.floor = NULL;
 	data->map.matrix = NULL;
+	data->map.max_x = NULL;
 	data->map.lines = 0;
 	data->rd.fd = -1;
 	data->rd.line = NULL;

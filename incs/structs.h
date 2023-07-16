@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:53:58 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 12:54:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:23:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ typedef struct s_file
 typedef struct s_map
 {
 	char	**matrix;
+	int		*max_x;
 	int		lines;
-
+	
 }t_map;
 
 /*

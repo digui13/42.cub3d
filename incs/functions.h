@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:57:17 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:58:37 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,9 @@ void			set_color_val(t_data *data, int *inc, int **rgb);
 #############################
 */
 
+
+void	check_map_inside(t_data *data, char **matrix, int x, int y);
+void	show_output(t_data *data);
 
 
 #endif
