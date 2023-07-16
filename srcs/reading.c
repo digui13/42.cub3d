@@ -6,13 +6,13 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 16:42:11 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/13 18:03:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 12:38:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cubed.h"
 
-void	line_elements(t_data *data)
+static void	line_elements(t_data *data)
 {
 	int	inc;
 
@@ -37,6 +37,20 @@ void	line_elements(t_data *data)
 	}
 }
 
+static void	read_until_end(t_data *data)
+{
+	int	inc;
+
+	inc = 0;
+	while (*(data->rd.line + inc) != '\0')
+	{
+		if (!my_isspace(*(data->rd.line + inc)))
+			gameover(data, EXIT_FAILURE,
+				"Error: File has extra content after map content");
+		inc++;
+	}
+}
+
 void	reading(t_data *data, char *filename)
 {
 	data->rd.fd = open(filename, O_RDONLY);
@@ -47,8 +61,10 @@ void	reading(t_data *data, char *filename)
 	{
 		if (!has_file_orientations(data) || !has_file_colors(data))
 			line_elements(data);
-		else
+		else if (data->rd.map_end == NO)
 			line_map(data);
+		else
+			read_until_end(data);
 		free_str_safe(&data->rd.line);
 		data->rd.line = get_next_line(data->rd.fd);
 	}
@@ -59,6 +75,6 @@ void	reading(t_data *data, char *filename)
 		gameover(data, EXIT_FAILURE, "Error: Miss file direction values");
 	if (!has_file_colors(data))
 		gameover(data, EXIT_FAILURE, "Error: Miss file color values");
-	if (!has_file_map(data))	
+	if (!has_file_map(data))
 		gameover(data, EXIT_FAILURE, "Error: Miss file map values");
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:04:05 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/08 22:04:06 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 13:01:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,22 @@ int	my_strncmp(const char *s1, const char *s2, size_t n)
 		return ((unsigned char) *(s1 + inc) - (unsigned char) *(s2 + inc));
 	else
 		return (0);
+}
+
+char	*my_strdup(const char *s)
+{
+	char	*p;
+	int		cnt;
+
+	p = (char *)malloc(ft_strlen(s) + 1);
+	cnt = 0;
+	if (p == NULL)
+		return (NULL);
+	while (*(s + cnt) != '\0')
+	{
+		*(p + cnt) = *(s + cnt);
+		cnt++;
+	}
+	*(p + cnt) = '\0';
+	return (p);
 }

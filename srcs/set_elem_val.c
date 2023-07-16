@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:07:33 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/13 18:20:01 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 12:38:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	*convert_str_to_rgb(t_data *data, char *line, int len)
 		*(rgb + rgb_idx) = get_num(data, line, &inc);
 		if (*(rgb + rgb_idx) < 0 || *(rgb + rgb_idx) > 255)
 			gameover(data, EXIT_FAILURE,
-			"Error: Element color value not RGB");
+				"Error: Element color value not RGB");
 		rgb_idx++;
 		inc++;
 	}

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:44:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/13 17:00:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 13:13:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,14 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < 3)
 	{
-		printf("n -> %d\n", *(data.file.ceiling + i));
-		printf("n -> %d\n", *(data.file.floor + i));
+		printf("ceiling -> %d\n", *(data.file.ceiling + i));
+		printf("floor -> %d\n", *(data.file.floor + i));
+		i++;
+	}
+	i = 0;
+	while (i < data.map.lines)
+	{
+		printf("%s", *(data.map.matrix + i));
 		i++;
 	}
 	gameover(&data, SUCCESS, NULL);
