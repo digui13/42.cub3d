@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:02:02 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 16:28:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:43:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static int	len_on_breakline(char *line)
 			return (inc);
 		inc++;
 	}
-	if (*(line + inc) == '\0')
-		inc--;
 	return (inc);
 }
 
