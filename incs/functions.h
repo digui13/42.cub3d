@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:02:08 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 13:57:17 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 */
 
 void			check_args(t_data *data, int ac);
+void			check_map(t_data *data);
 
 /*
 #############################

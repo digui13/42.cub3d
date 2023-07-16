@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:44:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:13:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 13:58:21 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 	check_args(&data, ac);
 	check_filename(&data, av[1]);
 	reading(&data, av[1]);
+	check_map(&data);
 	printf("NO %s\n", data.file.no_path);
 	printf("SO %s\n", data.file.so_path);
 	printf("WE %s\n", data.file.we_path);
@@ -35,7 +36,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < data.map.lines)
 	{
-		printf("%s", *(data.map.matrix + i));
+		printf("%s\n", *(data.map.matrix + i));
 		i++;
 	}
 	gameover(&data, SUCCESS, NULL);

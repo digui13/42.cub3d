@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:02:02 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:28:08 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/16 13:56:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,34 @@ static int	is_valid_symbol(char ch)
 	return (NO);
 }
 
+static int	len_on_breakline(char *line)
+{
+	int	inc;
+
+	inc = 0;
+	while (*(line + inc) != '\0')
+	{
+		if (*(line + inc) == '\n')
+			return (inc);
+		inc++;
+	}
+	if (*(line + inc) == '\0')
+		inc--;
+	return (inc);
+}
+
 static void	alloc_map_line(t_data *data)
 {
 	char	**tmp;
 	int		inc;
+	int		len;
 
 	inc = 0;
 	if (data->map.matrix == NULL)
 	{
 		data->map.matrix = malloc(sizeof(char *) * 2);
-		*data->map.matrix = my_strdup(data->rd.line);
+		len = len_on_breakline(data->rd.line);
+		*data->map.matrix = my_strndup(data->rd.line, len);
 		*(data->map.matrix + 1) = NULL;
 		data->map.lines = 1;
 	}
@@ -45,7 +63,8 @@ static void	alloc_map_line(t_data *data)
 			*(tmp + inc) = *(data->map.matrix + inc);
 			inc++;
 		}
-		*(tmp + inc) = my_strdup(data->rd.line);
+		len = len_on_breakline(data->rd.line);
+		*(tmp + inc) = my_strndup(data->rd.line, len);
 		*(tmp + inc + 1) = NULL;
 		free(data->map.matrix);
 		data->map.matrix = tmp;
@@ -68,7 +87,8 @@ void	line_map(t_data *data)
 		else if (!my_isspace(*(data->rd.line + inc)))
 			gameover(data, EXIT_FAILURE,
 				"Error: File has extra content inside map content");
-		else if (!(*(data->rd.line + inc) == ' ') && !(*(data->rd.line + inc) == '\n'))
+		else if (!(*(data->rd.line + inc) == ' ')
+			&& !(*(data->rd.line + inc) == '\n'))
 			gameover(data, EXIT_FAILURE,
 				"Error: File has tabs inside map content");
 		inc++;
