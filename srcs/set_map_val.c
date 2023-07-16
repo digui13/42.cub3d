@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_map_val.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:02:02 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/13 18:22:17 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/13 20:06:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,19 @@ void	line_map(t_data *data)
 			|| *(data->rd.line + inc) == 'E'
 			|| *(data->rd.line + inc) == 'W')
 		{
-			
+			if (data->map.matrix == NULL)
+			{
+				
+			}
+			else
+			{
+				data->map.matrix = malloc(sizeof(char *) * (1 + data->map.max_y));
+				while ()
+				{
+					
+				}
+				*(data->map.matrix + data->map.max_y) = ft_strdup(data->rd.line);
+			}
 		}
 		inc++;
 	}
