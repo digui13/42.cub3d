@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:55:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/17 17:50:48 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:32:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int				is_valid_symbol(char ch);
 int				is_spawn(char ch);
 void			check_map_inside(t_data *data, char **matrix, int x, int y);
 void			load_game(t_data *data);
+void			events(t_data *data);
 void			show_output(t_data *data);
 
 #endif
