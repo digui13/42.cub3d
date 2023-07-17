@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:44:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 18:44:08 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:34:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char **av)
 	check_filename(&data, av[1]);
 	reading(&data, av[1]);
 	check_map(&data);
+	load_game(&data);
 	show_output(&data);
 	gameover(&data, SUCCESS, NULL);
 	return (0);

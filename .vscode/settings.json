@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"cub3d.h": "c",
-		"cubed.h": "c"
+		"cubed.h": "c",
+		"structs.h": "c",
+		"macros.h": "c"
 	}
 }

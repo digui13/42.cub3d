@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 17:56:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 19:50:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:33:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,12 @@ void	initialize(t_data *data)
 	data->player.dir = -1;
 	data->player.x = -1;
 	data->player.y = -1;
+	data->win.mlx = NULL;
+	data->win.mlx_win = NULL;
+	data->texture.ea = NULL;
+	data->texture.no = NULL;
+	data->texture.so = NULL;
+	data->texture.we = NULL;
+	data->texture.height = -1;
+	data->texture.width = -1;
 }

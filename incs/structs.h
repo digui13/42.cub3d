@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 15:53:58 by dpestana          #+#    #+#             */
-/*   Updated: 2023/07/16 19:46:51 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:32:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,36 @@ typedef struct s_player
 
 /*
 #############################
+#			WINDOW			#
+#############################
+*/
+
+typedef struct s_window
+{
+	void *mlx;
+	void *mlx_win;
+
+}t_window;
+
+/*
+#############################
+#			TEXTURES		#
+#############################
+*/
+
+typedef struct s_textures
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		width;
+	int		height;
+
+}t_textures;
+
+/*
+#############################
 #			DATA			#
 #############################
 */
@@ -84,6 +114,8 @@ typedef struct s_data
 	t_file		file;
 	t_reading	rd;
 	t_player	player;
+	t_window	win;
+	t_textures	texture;
 
 }t_data;
 

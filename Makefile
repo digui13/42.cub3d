@@ -28,8 +28,6 @@ OUT_F						=	-o
 # Compile or assemble the source files, but do not link
 CPL_F						=	-c
 
-#MLX_FLAGS 			=		-Imlx -lmlx -framework OpenGL -framework AppKit
-
 #############################
 #			LIBRARY			#
 #############################
@@ -72,7 +70,8 @@ ALL_DIRS					=	$(OBJ_DIR) \
 # Source files
 SRC_FILES					=	main.c 									\
 								$(SRC_DIR)/show_output.c				\
-								$(SRC_DIR)/utils.c				\
+								$(SRC_DIR)/load_game.c					\
+								$(SRC_DIR)/utils.c						\
 								$(SRC_DIR)/check_map.c					\
 								$(SRC_DIR)/check_map_inside.c			\
 								$(SRC_DIR)/check_file.c					\
@@ -101,6 +100,21 @@ LIB_FILE					=	$(EXEC_NAME).a
 # Object files
 OBJ_FILES					=	$(SRC_FILES:%.c=$(OBJ_DIR)/%.o) $(SRC_FILES:srcs/%.c=$(OBJ_DIR)/srcs/%.o) $(SRC_FILES:srcs/gnl/%.c=$(OBJ_DIR)/srcs/gnl/%.o)
 
+
+ifeq ($(shell uname), Linux)
+MACFLAG		=	-DMACKEYMAP=0
+MLX			=	minilibx-linux/libmlx_Linux.a
+MLX_DIR 	= 	minilibx-linux
+MLX_FLAGS	= 	-Lminilibx-linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
+INC			=	-Iincludes -I/usr/include -Iminilibx-linux
+else
+MACFLAG		=	-DMACKEYMAP=1
+MLX			=	mlx/libmlx.a
+MLX_DIR		= 	mlx
+MLX_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+INC			=	-I . -Iincludes -Imlx
+endif
+
 #################################################################################################
 # 										RULES/TARGETS											#
 #################################################################################################
@@ -117,12 +131,14 @@ $(OBJ_DIR)/%.o: %.c
 # Build Project
 $(EXEC_NAME): $(ALL_DIRS) ${OBJ_FILES}
 	${AR} $(LIB_DIR)/${LIB_FILE} ${OBJ_FILES}
-	${COMP} $(WAR_F) $(SAN_F) $(LIB_DIR)/${LIB_FILE} $(OUT_F) $(EXEC_NAME)
+	make -s -C minilibx-linux
+	${COMP} $(WAR_F) $(SAN_F) $(LIB_DIR)/${LIB_FILE} $(INC) $(OUT_F) $(EXEC_NAME) $(MLX_FLAGS) $(MACFLAG) 
 
 # Clean Project
 clean:
 					${RM_RF} ${OBJ_DIR}
 					${RM_RF} $(EXEC_NAME)
+					@make clean -s -C minilibx-linux
 
 fclean:				clean
 					${RM_RF} $(LIB_DIR)
